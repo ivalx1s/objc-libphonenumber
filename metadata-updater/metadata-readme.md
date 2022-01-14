@@ -8,3 +8,6 @@ Run the metadataGenerator script:
 ./metadataGenerator.swift
 ```
 
+Upon completion, a `generatedJSON` folder will be created with three metadata files, namely:
+
+- PhoneNumberMetaData.json

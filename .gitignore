@@ -5,4 +5,7 @@
 xcuserdata/
 DerivedData/
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
-/metadata-updater/generatedJSON/
+/metadata-updater/generatedJSON/PhoneNumberMetaData.json
+/metadata-updater/generatedJSON/ShortNumberMetadata.json
+/metadata-updater/generatedJSON/PhoneNumberMetaDataForTesting.json
+
