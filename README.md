@@ -1,6 +1,6 @@
 # objc-libphonenumber-spm
 
-A fork of [iziz/libPhoneNumber-iOS](https://github.com/iziz/libPhoneNumber-iOS) updated to work flawlessly as the Swift Package library. Includes PhoneNumberUtil, ShortNumberUtil, AsYouTypeFormatter, but does not include a Geocoder. The package is not extensively tested yet, and test targets are not ported from original repo.
+A fork of [iziz/libPhoneNumber-iOS](https://github.com/iziz/libPhoneNumber-iOS) updated to work flawlessly as the Swift Package library. Includes `PhoneNumberUtil`, `ShortNumberUtil`, `AsYouTypeFormatter` but does not include a Geocoder. The package is not extensively tested yet, and test targets are not ported from the original repo.
 
 Whenever needed, pass the metadataHelper explicitly during initialization, otherwise the instance won't initialize propoerly.
 
@@ -25,4 +25,10 @@ final class PhoneUtils {
     //
     //
 }
+```
+
+For `NBPhoneNumberUtil` a shared instance is available that does seem to work properly despite marked as depricated:
+
+```swift
+private static let phoneLib: NBPhoneNumberUtil! = NBPhoneNumberUtil.sharedInstance()
 ```
