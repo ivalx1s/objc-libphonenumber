@@ -20,9 +20,9 @@ set -eu
 cd "${BASH_SOURCE%/*}" || exit
 
 TEMPDIR=$(mktemp -d)
-gzip -c "../generatedJSON/PhoneNumberMetaDataForTesting.json" > "$TEMPDIR/PhoneNumberMetaDataForTesting.zip"
-gzip -c "../generatedJSON/PhoneNumberMetaData.json" > "$TEMPDIR/PhoneNumberMetaData.zip"
-gzip -c "../generatedJSON/ShortNumberMetaData.json" > "$TEMPDIR/ShortNumberMetaData.zip"
+gzip -c "PhoneNumberMetaDataForTesting.json" > "$TEMPDIR/PhoneNumberMetaDataForTesting.zip"
+gzip -c "PhoneNumberMetaData.json" > "$TEMPDIR/PhoneNumberMetaData.zip"
+gzip -c "ShortNumberMetaData.json" > "$TEMPDIR/ShortNumberMetaData.zip"
 
 cat > "NBGeneratedPhoneNumberMetaData.h" <<'EOF'
 /*****
@@ -51,7 +51,7 @@ cat >> "NBGeneratedPhoneNumberMetaData.h" <<'EOF'
 };
 z_const size_t kPhoneNumberMetaDataCompressedLength = sizeof(kPhoneNumberMetaData);
 EOF
-LIB_SIZE=$(stat -f%z "../generatedJSON/PhoneNumberMetaDataForTesting.json")
+LIB_SIZE=$(stat -f%z "PhoneNumberMetaDataForTesting.json")
 echo "z_const size_t kPhoneNumberMetaDataExpandedLength = $LIB_SIZE;" >> "NBGeneratedPhoneNumberMetaData.h"
 
 cat >> "NBGeneratedPhoneNumberMetaData.h" <<'EOF'
@@ -67,7 +67,7 @@ cat >> "NBGeneratedPhoneNumberMetaData.h" <<'EOF'
 };
 z_const size_t kPhoneNumberMetaDataCompressedLength = sizeof(kPhoneNumberMetaData);
 EOF
-LIB_SIZE=$(stat -f%z "../generatedJSON/PhoneNumberMetaData.json")
+LIB_SIZE=$(stat -f%z "PhoneNumberMetaData.json")
 echo "z_const size_t kPhoneNumberMetaDataExpandedLength = $LIB_SIZE;" >> "NBGeneratedPhoneNumberMetaData.h"
 echo "#endif  // TESTING" >> "NBGeneratedPhoneNumberMetaData.h"
 
@@ -85,7 +85,7 @@ cat >> "NBGeneratedPhoneNumberMetaData.h" <<'EOF'
 };
 z_const size_t kShortNumberMetaDataCompressedLength = sizeof(kShortNumberMetaData);
 EOF
-LIB_SIZE=$(stat -f%z "../generatedJSON/ShortNumberMetaData.json")
+LIB_SIZE=$(stat -f%z "ShortNumberMetaData.json")
 echo "z_const size_t kShortNumberMetaDataExpandedLength = $LIB_SIZE;" >> "NBGeneratedPhoneNumberMetaData.h"
 echo "#endif  // SHORT_NUMBER_SUPPORT" >> "NBGeneratedPhoneNumberMetaData.h"
 
